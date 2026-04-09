@@ -5,110 +5,168 @@
 }
 
 body {
+    margin: 0;
+    padding: 0;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Yongkang_Park_Taipei.jpg/800px-Yongkang_Park_Taipei.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
-.cat-container {
-    margin-top: 2rem;
-    text-align: center;
+.park {
     position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.scene {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 2rem;
+.trees {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    font-size: 3rem;
+    z-index: 1;
 }
 
-.chase-group {
-    position: relative;
-    width: 80px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.mouse {
+.pipes {
+    position: absolute;
+    bottom: 10%;
+    right: 15%;
     font-size: 2rem;
+    z-index: 1;
 }
 
-.cat {
+.mice, .cats, .rainbows {
+    position: absolute;
+    z-index: 2;
+}
+
+.mouse, .cat, .rainbow-emoji {
     font-size: 2rem;
     position: absolute;
-    left: 0;
-    animation: chase 3s ease-in-out forwards;
 }
 
 .rainbow-emoji {
-    font-size: 2rem;
-    position: absolute;
-    left: 50%;
-    top: -20px;
-    transform: translateX(-50%);
-    opacity: 0;
-    animation: rainbow-appear 0s 3s forwards;
+    font-size: 1rem;
 }
 
-@keyframes chase {
-    0% {
-        left: 0;
-    }
-    100% {
-        left: 50px;
-    }
+/* Mouse animations - random running, random positions */
+.mouse1 { top: 15%; left: 10%; animation: mouse-run1 4s infinite; }
+.mouse2 { top: 25%; left: 45%; animation: mouse-run2 5s infinite; }
+.mouse3 { top: 35%; left: 80%; animation: mouse-run3 3.5s infinite; }
+.mouse4 { top: 50%; left: 20%; animation: mouse-run4 4.5s infinite; }
+.mouse5 { top: 65%; left: 60%; animation: mouse-run5 3s infinite; }
+.mouse6 { top: 10%; left: 75%; animation: mouse-run6 5.5s infinite; }
+.mouse7 { top: 40%; left: 5%; animation: mouse-run7 4s infinite; }
+.mouse8 { top: 70%; left: 35%; animation: mouse-run8 3.8s infinite; }
+.mouse9 { top: 20%; left: 90%; animation: mouse-run9 4.2s infinite; }
+.mouse10 { top: 55%; left: 50%; animation: mouse-run10 5s infinite; }
+
+/* Cat animations - chasing from random left positions */
+.cat1 { top: 15%; left: -5%; animation: cat-chase 3s forwards; }
+.cat2 { top: 25%; left: -5%; animation: cat-chase 4s forwards; }
+.cat3 { top: 35%; left: -5%; animation: cat-chase 5s forwards; }
+.cat4 { top: 50%; left: -5%; animation: cat-chase 3.5s forwards; }
+.cat5 { top: 65%; left: -5%; animation: cat-chase 4.5s forwards; }
+.cat6 { top: 10%; left: -5%; animation: cat-chase 5.5s forwards; }
+.cat7 { top: 40%; left: -5%; animation: cat-chase 3.2s forwards; }
+.cat8 { top: 70%; left: -5%; animation: cat-chase 4.8s forwards; }
+.cat9 { top: 20%; left: -5%; animation: cat-chase 3.7s forwards; }
+.cat10 { top: 55%; left: -5%; animation: cat-chase 5.2s forwards; }
+
+/* Rainbow emojis - smaller, appear after chase with burst */
+.rainbow1 { top: 10%; left: 15%; opacity: 0; animation: rainbow-burst 0s 3s forwards; }
+.rainbow2 { top: 20%; left: 50%; opacity: 0; animation: rainbow-burst 0s 4s forwards; }
+.rainbow3 { top: 30%; left: 85%; opacity: 0; animation: rainbow-burst 0s 5s forwards; }
+.rainbow4 { top: 45%; left: 25%; opacity: 0; animation: rainbow-burst 0s 3.5s forwards; }
+.rainbow5 { top: 60%; left: 65%; opacity: 0; animation: rainbow-burst 0s 4.5s forwards; }
+.rainbow6 { top: 5%; left: 80%; opacity: 0; animation: rainbow-burst 0s 5.5s forwards; }
+.rainbow7 { top: 35%; left: 10%; opacity: 0; animation: rainbow-burst 0s 3.2s forwards; }
+.rainbow8 { top: 65%; left: 40%; opacity: 0; animation: rainbow-burst 0s 4.8s forwards; }
+.rainbow9 { top: 15%; left: 95%; opacity: 0; animation: rainbow-burst 0s 3.7s forwards; }
+.rainbow10 { top: 50%; left: 55%; opacity: 0; animation: rainbow-burst 0s 5.2s forwards; }
+
+/* Keyframes for mouse running */
+@keyframes mouse-run1 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(50px, -20px); }
+    50% { transform: translate(100px, 10px); }
+    75% { transform: translate(30px, 30px); }
 }
 
-@keyframes rainbow-appear {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+@keyframes mouse-run2 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-40px, 20px); }
+    50% { transform: translate(-80px, -10px); }
+    75% { transform: translate(-20px, -30px); }
 }
 
-.cat-container p {
-    font-size: 1.5rem;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    margin-top: 1rem;
-    animation: wiggle 1s ease-in-out infinite;
+@keyframes mouse-run3 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(60px, 15px); }
+    50% { transform: translate(120px, -25px); }
+    75% { transform: translate(80px, 20px); }
 }
 
-@keyframes wiggle {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    25% {
-        transform: rotate(-3deg);
-    }
-    75% {
-        transform: rotate(3deg);
-    }
+@keyframes mouse-run4 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-50px, -15px); }
+    50% { transform: translate(-100px, 25px); }
+    75% { transform: translate(-70px, -10px); }
 }
 
-h1 {
-    font-size: 3.5rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    letter-spacing: 2px;
-    animation: bounce 2s infinite;
+@keyframes mouse-run5 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(40px, 30px); }
+    50% { transform: translate(80px, -20px); }
+    75% { transform: translate(60px, 10px); }
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-20px);
-    }
+@keyframes mouse-run6 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-30px, 25px); }
+    50% { transform: translate(-60px, -15px); }
+    75% { transform: translate(-40px, 20px); }
+}
+
+@keyframes mouse-run7 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(70px, -10px); }
+    50% { transform: translate(140px, 20px); }
+    75% { transform: translate(100px, -5px); }
+}
+
+@keyframes mouse-run8 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-60px, 10px); }
+    50% { transform: translate(-120px, -20px); }
+    75% { transform: translate(-90px, 15px); }
+}
+
+@keyframes mouse-run9 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(50px, 20px); }
+    50% { transform: translate(100px, -30px); }
+    75% { transform: translate(75px, 25px); }
+}
+
+@keyframes mouse-run10 {
+    0%, 100% { transform: translate(0, 0); }
+    25% { transform: translate(-45px, -25px); }
+    50% { transform: translate(-90px, 15px); }
+    75% { transform: translate(-65px, -10px); }
+}
+
+/* Cat chase animation */
+@keyframes cat-chase {
+    0% { left: -5%; }
+    100% { left: 80%; }
+}
+
+/* Rainbow burst */
+@keyframes rainbow-burst {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; transform: scale(1.5); }
+    100% { opacity: 1; transform: scale(1); }
 }
